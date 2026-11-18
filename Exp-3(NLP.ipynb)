@@ -1,0 +1,170 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOzaPVYJ6BoBvyvXRRN4KlK",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Akshaya-aligeti/DSA0310-NLP/blob/main/Exp-3(NLP.ipynb)\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "EXP 1\n"
+      ],
+      "metadata": {
+        "id": "p43NOeqXxCp-"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EDy8MNOT3eV-",
+        "outputId": "693449c8-bdf2-4ddf-e106-a8153e52d34a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Match: Python\n",
+            "Search: easy\n",
+            "Find All: ['9876543210']\n",
+            "Mobile Number: 9876543210\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "import re\n",
+        "\n",
+        "text = \"Python is easy to learn. Contact us at 9876543210\"\n",
+        "\n",
+        "# Match a pattern at the beginning\n",
+        "result1 = re.match(\"Python\", text)\n",
+        "print(\"Match:\", result1.group() if result1 else \"Not Found\")\n",
+        "\n",
+        "# Search for a pattern anywhere in the text\n",
+        "result2 = re.search(\"easy\", text)\n",
+        "print(\"Search:\", result2.group() if result2 else \"Not Found\")\n",
+        "\n",
+        "# Find all numbers in the text\n",
+        "result3 = re.findall(r\"\\d+\", text)\n",
+        "print(\"Find All:\", result3)\n",
+        "\n",
+        "# Check whether a pattern exists\n",
+        "result4 = re.search(r\"\\d{10}\", text)\n",
+        "print(\"Mobile Number:\", result4.group() if result4 else \"Not Found\")\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "EXP 2"
+      ],
+      "metadata": {
+        "id": "DNm7Z_EpxG8w"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def check_string(s):\n",
+        "    if s.endswith(\"ab\"):\n",
+        "        print(\"Accepted\")\n",
+        "    else:\n",
+        "        print(\"Rejected\")\n",
+        "\n",
+        "s = input(\"Enter a string: \")\n",
+        "check_string(s)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a6Wu2Z0bxGPb",
+        "outputId": "3f116942-17b9-43ba-aefb-846a3e40f872"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a string: aaab\n",
+            "Accepted\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "EXP 3"
+      ],
+      "metadata": {
+        "id": "EpCVv7Wic4ya"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "import nltk\n",
+        "from nltk.stem import PorterStemmer\n",
+        "\n",
+        "ps = PorterStemmer()\n",
+        "\n",
+        "words = [\"playing\", \"played\", \"plays\", \"running\", \"studies\"]\n",
+        "\n",
+        "for word in words:\n",
+        "    print(word, \"->\", ps.stem(word))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AhcbR-WUc6k7",
+        "outputId": "b8f0ab6f-e270-46cc-ef39-dd1c2d025453"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "playing -> play\n",
+            "played -> play\n",
+            "plays -> play\n",
+            "running -> run\n",
+            "studies -> studi\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
